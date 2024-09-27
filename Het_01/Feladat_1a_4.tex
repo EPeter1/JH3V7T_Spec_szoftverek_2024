@@ -1,0 +1,20 @@
+\documentclass[]{article}
+\usepackage[english,magyar]{babel}
+\usepackage{t1enc}
+\frenchspacing
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+\begin{document}
+\reflectbox{tükrözött szó}
+\newline\newline
+\reflectbox{\framebox{tükrözve, bekeretezve}}
+\newline\newline
+\rotatebox{180}{\scalebox{2}{vízszintes tükrözés, nyújtás}}
+\newline\newline
+\rotatebox{90}{90°-al elforgatott szó}, \rotatebox{270}{270°-al elforgatott szó}
+\newline\newline
+\colorbox{black}{\textcolor{white}{invertált szöveg}}
+\newline\newline
+\fcolorbox{red}{white}{\textcolor{red}{piros és keretezett szöveg}}
+\end{document}

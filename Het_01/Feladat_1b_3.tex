@@ -1,0 +1,32 @@
+\documentclass[]{book}
+\usepackage[magyar]{babel}
+\usepackage{t1enc}
+\usepackage{hulipsum}
+\frenchspacing
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+\begin{document}
+\title{Book osztályú zagyva szöveg}
+\maketitle
+\frontmatter
+\tableofcontents
+\clearpage
+~
+\clearpage
+\mainmatter
+\section[1. szakasz]{Rövid cím}
+\subsection{Egyik alszakasz}
+\hulipsum[1-4]
+\subsection{Másik alszakasz}
+\hulipsum[5-8]
+\section[2. szakasz]{Ez most egy nagyon hosszú, többsoros szakaszcím}
+\subsection{Harmadik alszakasz}
+\hulipsum[9-10]
+\subsubsection{Beágyazott szakasz}
+\hulipsum[11-12]
+\paragraph{Beágyazottabb szakasz}
+\hulipsum[13-14]
+\subparagraph{Legbeágyazottabb szakasz}
+\hulipsum[14-15]
+\end{document}

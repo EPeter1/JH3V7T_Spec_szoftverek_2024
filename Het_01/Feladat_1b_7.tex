@@ -1,0 +1,62 @@
+\documentclass[twoside,twocolumn]{article}
+\usepackage[magyar]{babel}
+\usepackage{t1enc}
+\usepackage{hulipsum}
+\usepackage{geometry}
+\frenchspacing
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\geometry{margin=3cm,outer=5cm}
+\geometry{bindingoffset=1cm}
+\geometry{marginparwidth=3cm,marginparsep=0.5cm}
+\geometry{columnsep=1cm}
+
+\begin{document}
+\pagenumbering{gobble}
+\title{Book osztályú zagyva szöveg}
+\maketitle
+\clearpage
+\begin{abstract}
+\hulipsum[1-2]
+\footnote{Lábjegyzet}
+\end{abstract}
+\clearpage
+\pagenumbering{roman}
+\tableofcontents
+\clearpage
+~
+\clearpage
+\pagenumbering{arabic}
+\section[1. szakasz]{Rövid cím}
+\footnote{Lábjegyzet}
+\subsection{Egyik alszakasz}
+\marginpar{Széljegyzet}
+\hulipsum[3-7]
+\subsection{Másik alszakasz}
+\hulipsum[8-11]
+\section[2. szakasz]{Ez most egy nagyon hosszú, többsoros szakaszcím}
+\subsection{Harmadik alszakasz}
+\hulipsum[12-14]
+\subsubsection{Beágyazott szakasz}
+\hulipsum[15-17]
+\paragraph{Beágyazottabb szakasz}
+\hulipsum[18-20]
+\marginpar{Széljegyzet}
+\subparagraph{Legbeágyazottabb szakasz}
+\hulipsum[21-23]
+\appendix
+\clearpage
+\section{Egyik függelék}
+\subsection{Egyik alfüggelék}
+\hulipsum[24]
+\subsection{Másik alfüggelék}
+\hulipsum[25]
+\clearpage
+\section{Másik függelék}
+\subsection{Harmadik alfüggelék}
+\subsubsection{Beágyazott alfüggelék}
+\hulipsum[26-27]
+\subsubsection{Beágyazott alfüggelék}
+\hulipsum[28]
+\end{document}
