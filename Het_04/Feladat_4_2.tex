@@ -1,0 +1,97 @@
+\documentclass{article}
+\usepackage[magyar]{babel}
+\usepackage{t1enc}
+\frenchspacing
+\usepackage{amsmath}
+\usepackage{amssymb}
+\DeclareMathOperator{\sign}{sgn}
+\usepackage{hyperref}
+
+\begin{document}
+\section{Bevezető}
+Az $\frac{1}{n^2}$ sorösszege:
+\[ \sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6} \text{.} \]
+Az $n!$ ($n$ faktoriális) a számok szorzata 1-től $n$-ig, azaz
+\begin{equation}\label{eq:faktorialis}
+n! := \prod_{k = 1}^n k = 1 \cdot 2 \cdot ... \cdot n \text{.}
+\end{equation}
+Konvenció szerint $0! = 1$.\\
+Legyen $0 \leq k \leq n$. A binomiális együttható
+\[ \binom{n}{k} := \frac{n!}{k! \cdot (n - k)!} \text{,} \]
+ahol a faktoriálist (\ref{eq:faktorialis}) szerint definiáljuk.\\
+Az előjel- azaz szignum függvényt a következőképpen definiáljuk:
+\[ \sign(x) :=
+\begin{cases}
+1, & \text{ha } x > 0, \\
+0, & \text{ha } x = 0, \\
+-1, & \text{ha } x < 0.
+\end{cases} \]
+\clearpage
+\section{Determináns}
+Legyen
+\[ [n] := \{1, 2, \cdots, n\} \]
+a természetes számok halmaza 1-től $n$-ig.\\
+Egy $n$-edrendű \textit{permutáció} $\sigma$ egy bijekció $[n]$-ből $[n]$-be. Az $n$-edrendű permutációk halmazát, az ún. szimmetrikus csoportot, $S_n$-el jelöljük.\\
+Egy $\sigma \in S_n$ permutációban inverziónak nevezünk egy $(i, j)$ párt, ha $i < j$ de $\sigma_i > \sigma_j$.\\
+Egy $\sigma \in S_n$ permutáció paritásának az inverziók számát nevezzük:
+\[ \mathcal{I} (\sigma) := \Bigl| \bigl\{ (i, j) \text{ } \big| \text{ } i, j \in [n], i < j, \sigma_i > \sigma_j \bigr\} \Bigr| \text{.} \]
+Legyen $A \in \mathbb{R}^{n \times n}$, egy ${n \times n}$-es (négyzetes) valós mátrix:
+\[ A = \left( \begin{matrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} \\
+\end{matrix} \right) \]
+Az $A$ mátrix determinánsát a következőképpen definiáljuk:
+\begin{equation}
+\det(A) = \begin{vmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn} \\
+\end{vmatrix} := \sum_{\sigma \in S_n} (-1)^{\mathcal{I}(\sigma)} \prod_{i = 1}^n a_{i\sigma_i}
+\end{equation}
+\clearpage
+\section{Logikai azonosság}
+Tekintsük az $L = \{ 0, 1 \}$ halmazt, és legyenek $a, b, c, d \in L$. Belátjuk a következő azonosságot:\\
+\begin{equation}\label{eq:konjunkciok}
+(a \wedge b \wedge c) \rightarrow d = a \rightarrow \bigl( b \rightarrow (c \rightarrow d) \bigr) \text{.}
+\end{equation}
+A következő azonosságokat bizonyítás nélkül használjuk:\\
+\begin{subequations}\label{eq:azonossagok}
+\begin{equation}\label{eq:implikacio}
+x \rightarrow y = \bar{x} \vee y
+\end{equation}
+\begin{equation}\label{eq:De_Morgan}
+\overline{x \vee y} = \bar{x} \wedge \bar{y} \qquad \overline{x \wedge y} = \bar{x} \vee \bar{y}
+\end{equation}
+\end{subequations}
+A (\ref{eq:konjunkciok}) bal oldala, (\ref{eq:azonossagok}) felhasználásával
+\begin{equation}\label{eq:levezetes}
+(a \wedge b \wedge c) \rightarrow d \underset{(\ref{eq:implikacio})}{=} \overline{a \wedge b \wedge c} \vee d \underset{(\ref{eq:De_Morgan})}{=} (\bar{\mathstrut a} \vee \bar{\mathstrut b} \vee \bar{\mathstrut c}) \vee d \text{.}
+\end{equation}
+A (\ref{eq:konjunkciok}) jobb oldala, (\ref{eq:implikacio}) ismételt felhasználásával
+\begin{align}\label{eq:diszjunkciok}
+\begin{split}
+a \rightarrow \bigl( b \rightarrow (c \rightarrow d) \bigr) &= \bar{\mathstrut a} \vee \bigl( b \rightarrow (c \rightarrow d) \bigr) \\
+&= \bar{\mathstrut a} \vee \bigl( \bar{\mathstrut b} \vee (c \rightarrow d) \bigr) \\
+&= \bar{\mathstrut a} \vee \bigl( \bar{\mathstrut b} \vee (\bar{\mathstrut c} \vee d) \bigr) \text{,}
+\end{split}
+\end{align}
+ami a $\vee$ asszociativitása miatt egyenlő (\ref{eq:levezetes}) egyenlettel.
+\clearpage
+\section{Binomiális tétel}
+\begin{subequations}
+\begin{align}
+(a + b)^{n + 1} &= (a + b) \cdot \left( \sum_{k = 0}^n \binom{n}{k} a^{n - k} b^k \right) \\
+&= \cdots \nonumber \\
+&= \sum_{k = 0}^n \binom{n}{k} a^{(n + 1) - k} b^k + \sum_{k = 1}^{n + 1} \binom{n}{k - 1} a^{(n + 1) - k} b^{k} \\
+&= \cdots \nonumber \\
+\begin{split}
+&= \binom{n + 1}{0} a^{n + 1 - 0} b^0 + \sum_{k = 1}^n \binom{n + 1}{k} a^{(n + 1) - k} b^k \\
+&+ \binom{n + 1}{n + 1} a^{n + 1 - (n + 1)} b^{n + 1} \text{.}
+\end{split} \\
+&= \sum_{k = 0}^{n + 1} \binom{n + 1}{k} a^{(n + 1) - k} b^k \text{.}
+\end{align}
+\end{subequations}
+\end{document}

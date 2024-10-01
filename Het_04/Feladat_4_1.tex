@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage[magyar]{babel}
+\usepackage{t1enc}
+\frenchspacing
+\usepackage{amsthm}
+\newtheorem{tetelek}{Tétel}
+\newtheorem{lemmak}[tetelek]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definiciok}{Definíció}[section]
+\usepackage{hyperref}
+
+\begin{document}
+\section{Első szakasz}
+\begin{definiciok}
+Természetes számoknak nevezzük a nemnegatív egész számokat.
+\end{definiciok}
+\begin{definiciok}
+Egy pozitív egész szám prímtényezőin a szám prímszám osztóinak összességét értjük.
+\end{definiciok}
+\begin{tetelek}
+Minden 1-nél nagyobb természetes szám felbontható prímtényezők szorzatára, és ez a felbontás egyértelmű.
+\end{tetelek}
+\section{Második szakasz}
+\begin{tetelek}[Thalész]
+Ha vesszük egy $O$ középpontú kör $AB$ átmérőjét, valamint a körvonal egy tetszőleges ($A$-tól és $B$-től különböző) $C$ pontját, akkor az $ABC$ háromszög $C$ csúcsánál lévő $\gamma$ szöge derékszög lesz.
+\end{tetelek}
+\begin{definiciok}
+Egy egész együtthatós polinomot primitívnek nevezünk, ha az együtthatóinak legnagyobb közös osztója 1.
+\end{definiciok}
+\begin{lemmak}[Gauss]
+Ha két polinom primitív, akkor a szorzatuk is primitív.
+\end{lemmak}
+\begin{proof}[Thalész-tétel bizonyítása]
+Azt fogjuk felhasználni, hogy a háromszög belső szögeinek összege 180°. Legyen $O$ a kör középpontja. Ekkor az $AOC$ és $COB$ háromszög egyenlő szárú, azaz ...
+\end{proof}
+\begin{proof}[Gauss-lemma bizonyítása]
+A bizonyítás elérhető \href{https://hu.wikipedia.org/wiki/Gauss-lemma#A_lemma_bizonyítása}{ezen} a linken.
+\end{proof}
+\end{document}
