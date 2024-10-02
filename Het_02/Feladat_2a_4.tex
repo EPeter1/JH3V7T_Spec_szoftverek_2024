@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage[magyar]{babel}
+\usepackage{t1enc}
+\usepackage{hulipsum}
+\frenchspacing
+\usepackage{enumitem}
+\setlistdepth{5}
+\newlist{myenum}{enumerate}{5}
+\setlist[myenum]{label=(\arabic*)}
+
+\begin{document}
+Egymásba ágyazott listák:
+\begin{enumerate}
+\item első szint
+\begin{enumerate}[series=level2,label=\arabic*.]
+	\item második szint
+	\item ...
+	\begin{enumerate}
+		\item harmadik szint
+		\begin{enumerate}[series=level4]
+			\item negyedik szint
+			\item ...
+			\item ...
+		\end{enumerate}
+	\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+Saját lista (myenum) kipróbálása:
+\begin{myenum}
+\item Alfa
+\begin{myenum}
+	\item Béta
+	\begin{myenum}
+		\item Gamma
+		\item Delta
+		\begin{myenum}
+			\item Epszilon
+			\item Lambda
+			\item Szigma
+			\begin{myenum}
+				\item Omega
+			\end{myenum}
+		\end{myenum}
+	\end{myenum}	
+\end{myenum}
+\end{myenum}
+\hulipsum[1-3]
+\begin{enumerate}[resume]
+\item első szint folytatás
+\begin{enumerate}[resume*=level2]
+	\item ...
+	\item második szint folytatás
+	\item ...
+	\begin{enumerate}
+		\item harmadik szint újrakezdve
+		\begin{enumerate}[resume=level4]
+			\item negyedik szint folytatás
+			\item ...
+			\item[*] saját jel
+		\end{enumerate}
+	\end{enumerate}
+\end{enumerate}
+\end{enumerate}
+\end{document}
