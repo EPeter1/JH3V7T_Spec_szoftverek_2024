@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage[magyar]{babel}
+\usepackage{t1enc}
+\frenchspacing
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{hyperref}
+
+\begin{document}
+\listoftables
+\clearpage
+\begin{table}
+\caption{Igazítás, rácsvonalak}
+\centering
+\begin{tabular}{p{30pt}||rcl|}
+& egy & kettő & három \\ \hline \hline
+Helló világ! & négy & öt & hat \\ \cline{2-4}
+& hét & nyolc & kilenc \\ \cline{1-1} \cline{3-4}
+lórum ipse & tíz & & tizenkettő \\ \hline
+\end{tabular}
+\end{table}
+\begin{table}
+\caption{Színezés}
+\begin{subtable}[b]{0.5\linewidth}
+\caption{Zebra}
+\centering
+\rowcolors{2}{blue!20}{yellow!20}
+\begin{tabular}{r|c|l}
+egy & kettő & három \\ \hline
+négy & öt & hat \\
+hét & nyolc & kilenc \\
+tíz & tizenegy & tizenkettő \\
+\end{tabular}
+\end{subtable}
+\begin{subtable}[b]{0.5\linewidth}
+\caption{Tarka}
+\centering
+\newcolumntype{s}{>{\columncolor{gray}\color{white}}r}
+\arrayrulecolor{green}
+\begin{tabular}{s|cl}
+\textcolor{green}{egy} & \multicolumn{1}{c}{kettő} & három \\ \hline
+négy & öt & hat \\
+hét & nyolc & \cellcolor{green!20}kilenc \\
+tíz & tizenegy & tizenkettő \\
+\end{tabular}
+\end{subtable}
+\end{table}
+\begin{table}
+\caption{Cellák összevonása}
+\centering
+\arrayrulecolor{black}
+\begin{tabular}{r|c|c|}
+egy & \multicolumn{2}{c|}{kettő} \\ \hline
+\multirow{2}{2em}{négy} & öt & hat \\ \cline{2-3}
+& \multicolumn{2}{c|}{\multirow{2}{2em}{nyolc}} \\ \cline{1-1}
+tíz & \multicolumn{2}{c|}{} \\ \hline
+\end{tabular}
+\end{table}
+\end{document}

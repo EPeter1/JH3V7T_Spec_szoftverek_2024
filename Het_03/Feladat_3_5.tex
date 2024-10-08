@@ -1,0 +1,22 @@
+\documentclass{article}
+\usepackage[magyar,english]{babel}
+\usepackage{t1enc}
+\frenchspacing
+\usepackage{listings}
+\usepackage[svgnames]{xcolor}
+\lstdefinestyle{c_stilus}{language=c,%
+backgroundcolor=\color{gray!20},%
+keywordstyle=\color{DarkRed},%
+identifierstyle=\color{DarkBlue},%
+commentstyle=\color{gray},%
+tabsize=2,%
+showspaces=false,%
+showtabs=false,%
+numbers=left,%
+stepnumber=4,%
+framexleftmargin=20pt}
+\renewcommand{\lstlistingname}{}
+
+\begin{document}
+\lstinputlisting[caption={C program. Bináris keresés C-ben},style=c_stilus,lastline=11]{Programok/binsearch.c}
+\end{document}

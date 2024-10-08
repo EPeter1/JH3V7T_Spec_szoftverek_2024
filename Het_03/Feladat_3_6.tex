@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage[magyar,english]{babel}
+\usepackage{t1enc}
+\frenchspacing
+\usepackage{listings}
+\usepackage[svgnames]{xcolor}
+\usepackage{float}
+\newfloat{python_program}{hbt!}{lop}
+\lstdefinestyle{python_stilus}{language=python,%
+tabsize=2,%
+showspaces=false,%
+showtabs=false,%
+numbers=left,%
+stepnumber=4,%
+frame=lRtB,%
+framexleftmargin=20pt}
+\newfloat{c_program}{hbt!}{lop}
+\lstdefinestyle{c_stilus}{language=c,%
+backgroundcolor=\color{gray!20},%
+keywordstyle=\color{DarkRed},%
+identifierstyle=\color{DarkBlue},%
+commentstyle=\color{gray},%
+tabsize=2,%
+showspaces=false,%
+showtabs=false,%
+numbers=left,%
+stepnumber=4,%
+framexleftmargin=20pt}
+\renewcommand{\lstlistlistingname}{Programkódok jegyzéke}
+\renewcommand{\lstlistingname}{Programkód}
+\usepackage{hyperref}
+
+\begin{document}
+\lstlistoflistings
+\clearpage
+\begin{python_program}
+\lstinputlisting[caption={Bináris keresés és beszúró rendezés Python-ban},style=python_stilus]{Programok/bin_ker.py}
+\end{python_program}
+\begin{c_program}
+\lstinputlisting[caption={Bináris keresés C-ben},style=c_stilus,firstline=13]{Programok/binsearch.c}
+\end{c_program}
+\end{document}

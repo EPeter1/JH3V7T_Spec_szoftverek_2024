@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage[magyar]{babel}
+\usepackage{t1enc}
+\frenchspacing
+
+\begin{document}
+Ez egy teljesen szokásos mondat kezdete, most viszont következik egy LaTeX parancs, ami a megadott szöveget \textit{dőlt betűssé} teszi: \verb|\textit{dőlt betűs szöveg}|. Ábrák úsztatására a figure környezet által van lehetőség, melynek módja az ábrával kapcsolatos kód elhelyezése a \verb|\begin{figure}| és \verb|\end{figure}| közötti részekben. Ha feliratozni is szeretnénk az így beszúrt képet, akkor az megtehető a \verb|\caption{képaláírás}| segítségével.\par
+Kedvenc gyümölcsök:
+\begin{enumerate}
+\item szőlő,
+\item narancs,
+\item áfonya,
+\item kiwi.
+\end{enumerate}\par
+A fenti lista LaTeX-ben a következő módon néz ki:
+\begin{verbatim}
+Kedvenc gyümölcsök:
+\begin{enumerate}
+\item szőlő,
+\item narancs,
+\item áfonya,
+\item kiwi.
+\end{enumerate}\par
+\end{verbatim}
+\end{document}
