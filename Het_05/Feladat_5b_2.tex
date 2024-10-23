@@ -1,0 +1,102 @@
+\documentclass[twoside,12pt]{article}
+\usepackage[magyar]{babel}
+\usepackage{t1enc}
+\usepackage{hulipsum}
+\usepackage{geometry}
+\frenchspacing
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\geometry{margin=3cm,outer=5cm}
+\geometry{bindingoffset=1cm}
+\geometry{marginparwidth=3cm,marginparsep=0.5cm}
+\usepackage{fancyhdr}
+\setlength{\headheight}{16pt}
+\fancypagestyle{plain}{%
+\fancyhf{}%
+\fancyfoot[LE,RO]{\thepage}%
+}
+\fancyhf[HR]{\thepage}
+\fancyhf[HLE]{\leftmark}
+\fancyhf[HLO]{\rightmark}
+\fancyhf[FC]{Miskolci Egyetem}
+\renewcommand{\footrulewidth}{0.4pt}
+\usepackage[backend=biber,style=alphabetic,sorting=ynt,hyperref,backref]{biblatex}
+\usepackage{csquotes}
+\addbibresource{ltx.bib}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=green,linktoc=all}
+
+\begin{document}
+\title{Irodalomjegyzék készítése}
+\maketitle
+\pagestyle{fancy}
+\clearpage
+\begin{abstract}
+\hulipsum[1-2]
+\footnote{Lábjegyzet}
+\end{abstract}
+\clearpage
+\pagenumbering{roman}
+\tableofcontents
+\clearpage
+~
+\clearpage
+\pagenumbering{arabic}
+\section[1. szakasz]{Rövid cím}
+\footnote{Lábjegyzet}
+\subsection{Egyik alszakasz}
+\marginpar{Széljegyzet}
+\autoref{ss:egyik}\\
+\autopageref{ss:egyik}\\
+\autoref{sp:masik}\\
+\autopageref{sp:masik}\\
+\autoref{app:harmadik}\\
+\autopageref{app:harmadik}\\
+\ref{s:szamozatlan}\\
+Tanárnő honlapja \href{https://web.uni-miskolc.hu/~viktoria.vadon/}{itt} elérhető.\\
+\hulipsum[3-7]
+\cite{abrharber03}
+\subsection{Másik alszakasz}
+\hulipsum[8-10]
+\cite{lamport94}
+\label{ss:egyik}
+\hulipsum[11]
+\cite{knuth84}
+\section[2. szakasz]{Ez most egy nagyon hosszú, többsoros szakaszcím}
+\subsection{Harmadik alszakasz}
+\hulipsum[12-14]
+\subsubsection{Beágyazott szakasz}
+\hulipsum[15-17]
+\cite{abrharber03,lamport94}
+\paragraph{Beágyazottabb szakasz}
+\hulipsum[18-20]
+\marginpar{Széljegyzet}
+\subparagraph{Legbeágyazottabb szakasz}
+\label{sp:masik}
+\hulipsum[21-23]
+\cite{bujfaz,lamport94}
+\section*{Számozatlan szakasz}
+\addcontentsline{toc}{section}{Számozatlan szakasz}
+\label{s:szamozatlan}
+\hulipsum[24-30]
+\appendix
+\clearpage
+\section{Egyik függelék}
+\subsection{Egyik alfüggelék}
+\hulipsum[31]
+\cite{knuth84}
+\label{app:harmadik}
+\subsection{Másik alfüggelék}
+\hulipsum[32]
+\clearpage
+\section{Másik függelék}
+\subsection{Harmadik alfüggelék}
+\subsubsection{Beágyazott alfüggelék}
+\hulipsum[33-34]
+\subsubsection{Beágyazott alfüggelék}
+\hulipsum[35]
+\cite{bujfaz}
+\clearpage
+\printbibliography[heading=bibintoc,title={Irodalomjegyzék}]
+\end{document}
